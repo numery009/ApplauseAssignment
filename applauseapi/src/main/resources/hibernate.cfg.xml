@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+	<session-factory>
+		<!-- Database connection settings -->
+		<property name="connection.driver_class">org.h2.Driver</property>		
+		<property name="connection.url">jdbc:h2:tcp:localhost/~/applauseAssignment</property>	
+		<property name="connection.username">sa</property>
+		<property name="connection.password">sa</property>		
+		
+		<!-- SQL Dialect -->
+		<property name="dialect">org.hibernate.dialect.H2Dialect</property>
+		
+		<!-- <property name="current_session_context_class">thread</property>-->
+		 <property name="hibernate.enable_lazy_load_no_trans">true</property> 
+		
+		<!-- Disable second level cash -->
+		<property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property>
+
+		<!-- Echo all executed SQL to stdout  -->
+		<property name="show_sql">true</property>
+		
+		<!--Drop or recreate the database scheme startup  -->
+		<!-- <property name="hbm2ddl.auto">validate</property> -->
+
+		<mapping class="src.com.as.applause.device.vo.Device" />
+		<mapping class="src.com.as.applause.tester.vo.Tester" /> 
+		<mapping class="src.com.as.applause.TesterDevice.vo.TesterDevice" />
+		<mapping class="src.com.as.applause.bug.vo.Bug" />
+		<mapping class="src.com.as.applause.bug.vo.BugCriteria" />
+	</session-factory>
+</hibernate-configuration>
